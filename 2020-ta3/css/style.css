@@ -29,21 +29,11 @@ button {
   font: inherit;
 }
 
-header {
+header h1 {
   position: absolute;
   top: 2em;
   left: 2em;
-  right: 2em;
   z-index: 100;
-}
-@media screen and (max-width: 480px) {
-  header {
-    top: 1em;
-    left: 1em;
-    right: 1em;
-  }
-}
-header h1 {
   float: left;
   margin: 0;
   font-size: inherit;
@@ -51,8 +41,23 @@ header h1 {
   padding: 5px 0;
   color: white;
 }
+@media screen and (max-width: 480px) {
+  header h1 {
+    top: 1em;
+    left: 1em;
+  }
+}
 header nav {
-  float: right;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  z-index: 100;
+}
+@media screen and (max-width: 480px) {
+  header nav {
+    top: 1em;
+    right: 1em;
+  }
 }
 header nav ul {
   margin: 0;
@@ -97,6 +102,7 @@ header nav ul.show-all li#header-nav-link_about, header nav ul.show-all li#heade
   justify-content: center;
   align-items: center;
   z-index: 2;
+  overflow: hidden;
 }
 .onion-container.floating {
   position: fixed;
@@ -121,121 +127,122 @@ header nav ul.show-all li#header-nav-link_about, header nav ul.show-all li#heade
   cursor: pointer;
   z-index: 100;
 }
-@media screen and (max-width: 480px) {
-  .onion-container .onion .layer {
-    border-width: 12px;
-  }
-}
 .onion-container .onion .layer.current .layer {
   visibility: hidden;
 }
 .onion-container .onion .layer#layer-1 {
   border-color: rgba(255, 255, 255, 0.05);
 }
-.onion-container .onion .layer#layer-1:hover, .onion-container .onion .layer#layer-1.hover {
+.onion-container .onion .layer#layer-1.hover {
   border-color: #b3712e;
 }
 .onion-container .onion .layer#layer-2 {
   border-color: rgba(255, 255, 255, 0.1);
 }
-.onion-container .onion .layer#layer-2:hover, .onion-container .onion .layer#layer-2.hover {
+.onion-container .onion .layer#layer-2.hover {
   border-color: RoyalBlue;
 }
 .onion-container .onion .layer#layer-3 {
   border-color: rgba(255, 255, 255, 0.15);
 }
-.onion-container .onion .layer#layer-3:hover, .onion-container .onion .layer#layer-3.hover {
+.onion-container .onion .layer#layer-3.hover {
   border-color: Tomato;
 }
 .onion-container .onion .layer#layer-4 {
   border-color: rgba(255, 255, 255, 0.2);
 }
-.onion-container .onion .layer#layer-4:hover, .onion-container .onion .layer#layer-4.hover {
+.onion-container .onion .layer#layer-4.hover {
   border-color: LimeGreen;
 }
 .onion-container .onion .layer#layer-5 {
   border-color: rgba(255, 255, 255, 0.25);
 }
-.onion-container .onion .layer#layer-5:hover, .onion-container .onion .layer#layer-5.hover {
+.onion-container .onion .layer#layer-5.hover {
   border-color: Aquamarine;
 }
 .onion-container .onion .layer#layer-6 {
   border-color: rgba(255, 255, 255, 0.3);
 }
-.onion-container .onion .layer#layer-6:hover, .onion-container .onion .layer#layer-6.hover {
+.onion-container .onion .layer#layer-6.hover {
   border-color: MidnightBlue;
 }
 .onion-container .onion .layer#layer-7 {
   border-color: rgba(255, 255, 255, 0.35);
 }
-.onion-container .onion .layer#layer-7:hover, .onion-container .onion .layer#layer-7.hover {
+.onion-container .onion .layer#layer-7.hover {
   border-color: DarkOrchid;
 }
 .onion-container .onion .layer#layer-8 {
   border-color: rgba(255, 255, 255, 0.4);
 }
-.onion-container .onion .layer#layer-8:hover, .onion-container .onion .layer#layer-8.hover {
+.onion-container .onion .layer#layer-8.hover {
   border-color: OrangeRed;
 }
 .onion-container .onion .layer#layer-9 {
   border-color: rgba(255, 255, 255, 0.45);
 }
-.onion-container .onion .layer#layer-9:hover, .onion-container .onion .layer#layer-9.hover {
+.onion-container .onion .layer#layer-9.hover {
   border-color: Snow;
 }
 .onion-container .onion .layer#layer-10 {
   border-color: rgba(255, 255, 255, 0.5);
 }
-.onion-container .onion .layer#layer-10:hover, .onion-container .onion .layer#layer-10.hover {
+.onion-container .onion .layer#layer-10.hover {
   border-color: DodgerBlue;
 }
 .onion-container .onion .layer#layer-11 {
   border-color: rgba(255, 255, 255, 0.55);
 }
-.onion-container .onion .layer#layer-11:hover, .onion-container .onion .layer#layer-11.hover {
+.onion-container .onion .layer#layer-11.hover {
   border-color: PapayaWhip;
 }
 .onion-container .onion .layer#layer-12 {
   border-color: rgba(255, 255, 255, 0.6);
 }
-.onion-container .onion .layer#layer-12:hover, .onion-container .onion .layer#layer-12.hover {
+.onion-container .onion .layer#layer-12.hover {
   border-color: LightPink;
 }
 .onion-container .onion .layer#layer-13 {
   border-color: rgba(255, 255, 255, 0.65);
 }
-.onion-container .onion .layer#layer-13:hover, .onion-container .onion .layer#layer-13.hover {
+.onion-container .onion .layer#layer-13.hover {
   border-color: PaleGreen;
 }
 .onion-container .onion .layer#layer-14 {
   border-color: rgba(255, 255, 255, 0.7);
 }
-.onion-container .onion .layer#layer-14:hover, .onion-container .onion .layer#layer-14.hover {
+.onion-container .onion .layer#layer-14.hover {
   border-color: Blue;
 }
 .onion-container .onion .layer#layer-15 {
   border-color: rgba(255, 255, 255, 0.75);
 }
-.onion-container .onion .layer#layer-15:hover, .onion-container .onion .layer#layer-15.hover {
+.onion-container .onion .layer#layer-15.hover {
   border-color: Chartreuse;
 }
 .onion-container .onion .layer#layer-16 {
   border-color: rgba(255, 255, 255, 0.8);
 }
-.onion-container .onion .layer#layer-16:hover, .onion-container .onion .layer#layer-16.hover {
+.onion-container .onion .layer#layer-16.hover {
   border-color: ForestGreen;
 }
 .onion-container .onion .layer#layer-17 {
   border-color: rgba(255, 255, 255, 0.85);
 }
-.onion-container .onion .layer#layer-17:hover, .onion-container .onion .layer#layer-17.hover {
+.onion-container .onion .layer#layer-17.hover {
   border-color: Khaki;
 }
 .onion-container .onion .layer#layer-18 {
   border-color: rgba(255, 255, 255, 0.9);
 }
-.onion-container .onion .layer#layer-18:hover, .onion-container .onion .layer#layer-18.hover {
+.onion-container .onion .layer#layer-18.hover {
   border-color: Coral;
+}
+@media screen and (max-width: 480px) {
+  .onion-container .onion .layer {
+    border-top-width: 24px;
+    border-bottom-width: 0;
+  }
 }
 
 button.peel-button {
@@ -294,6 +301,9 @@ section .section-color-edges {
 }
 section .section-content {
   width: 100%;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 section .section-content article {
   width: calc(100% - 4em);
@@ -308,6 +318,12 @@ section .section-content article {
 section .section-content article h2 {
   line-height: 1.166;
 }
+section .section-content article figure {
+  margin: 0;
+}
+section .section-content article figure img {
+  width: 100%;
+}
 section .section-content article figure.illustration {
   padding: 0 2em;
 }
@@ -315,9 +331,6 @@ section .section-content article figure.illustration {
   section .section-content article figure.illustration {
     padding: 0;
   }
-}
-section .section-content article figure.illustration img {
-  width: 100%;
 }
 section .section-content article .text-footer {
   font-style: italic;
@@ -448,14 +461,17 @@ section#section-0 .section-content #about {
 section#section-0 .section-content #contributors {
   position: relative;
   z-index: 3;
-  margin: -6em 2em 2em;
-  padding-top: 6em;
+  margin: -2em 2em 0;
+  padding-top: 2em;
 }
 @media screen and (max-width: 480px) {
   section#section-0 .section-content #contributors {
-    margin: -6em 1em 6em;
-    padding-top: 6em;
+    margin: -2em 1em 0;
+    padding-top: 2em;
   }
+}
+section#section-0 .section-content #contributors h2 {
+  margin-bottom: 0;
 }
 section#section-0 .section-content #contributors ol {
   position: relative;
@@ -466,10 +482,14 @@ section#section-0 .section-content #contributors ol {
   list-style: none;
 }
 section#section-0 .section-content #contributors ol li {
-  margin-bottom: 4em;
+  padding-top: 2em;
+  padding-bottom: 2em;
   flex: 0 0 25%;
   text-align: center;
   cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 @media screen and (max-width: 720px) {
   section#section-0 .section-content #contributors ol li {
@@ -483,6 +503,7 @@ section#section-0 .section-content #contributors ol li figure {
 section#section-0 .section-content #contributors ol li figure img {
   width: 100%;
   filter: drop-shadow(0 0 0 black);
+  pointer-events: none;
 }
 
 section#section-1 > div.section-color-backdrop {

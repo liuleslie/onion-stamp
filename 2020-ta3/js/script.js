@@ -12,14 +12,12 @@ $(document).ready(function() {
   // set current section
   var allSections = document.querySelectorAll('section');
   var currentSectionIndex = 1;
-  $('.onion .layer#layer-1').find('.layer').addClass('hide');
+  // $('.onion .layer#layer-1').find('.layer').addClass('hide');
 
   document.querySelectorAll('button.peel-button').forEach(button => {
     button.addEventListener('click', () => {
       goDown();
       button.blur();
-      $(button).css('background', $('section.current > .section-color-backdrop').css('background'));
-      $(button).css('color', $('section.current > .section-content').css('color'));
     });
     button.addEventListener('mouseenter', () => {
       if (currentSectionIndex < allSections.length - 1) {
@@ -31,6 +29,19 @@ $(document).ready(function() {
       }
     });
     button.addEventListener('mouseleave', () => {
+      $(button).css('background', 'white');
+      $(button).css('color', '');
+    });
+    button.addEventListener('touchstart', () => {
+      if (currentSectionIndex < allSections.length - 1) {
+        $(button).css('background', $('section.current + section > .section-color-backdrop').css('background'));
+        $(button).css('color', $('section.current + section > .section-content').css('color'));
+      } else {
+        $(button).css('background', $('section.current > .section-color-backdrop').css('background'));
+        $(button).css('color', $('section.current > .section-content').css('color'));
+      }
+    });
+    button.addEventListener('touchend', () => {
       $(button).css('background', 'white');
       $(button).css('color', '');
     });
@@ -52,15 +63,48 @@ $(document).ready(function() {
   });
 
   /* ONION NAV */
-  // add click event for onion
-  document.querySelectorAll('.onion .layer').forEach(onionLayer => {
-    onionLayer.addEventListener('click', (event) => {
-      var index = parseInt(onionLayer.id.split('-')[1]);
-      goToSection(index);
-      event.stopPropagation();
-      playRandomChoppingSound();
+  function setupOnionNav() {
+    // add click event for onion
+    $('.onion .layer').each(function(index, element) {
+      $(element).click(function(event) {
+        var index = parseInt($(this).attr('id').split('-')[1]);
+        goToSection(index);
+        event.stopPropagation();
+        playRandomChoppingSound();
+        $('.onion .layer').removeClass('hover');
+        $(this).off('mouseenter').off('touchstart').off('mouseleave').off('touchend');
+      }).bind('mouseenter touchstart', function() {
+        $(this).addClass('hover');
+      }).bind('mouseleave touchend', function() {
+        $(this).removeClass('hover');
+      });
     });
-  });
+  }
+
+  /*******************
+   * CONTRIBUTORS DIRECTORY
+   *******************/
+  function setupContributorsDirectory() {
+    $('#section-0 .section-content #contributors ol li')
+    .click(function() {
+      var index = $(this).attr('id').split('-')[1];
+      goToSection(index);
+      playRandomChoppingSound();
+      $('.onion-container').css('mix-blend-mode', '');
+      getOnionLayer(index).removeClass('hover');
+      $(this).off('mouseleave').off('touchend');
+    })
+    .bind('mouseenter touchstart', function() {
+      var index = $(this).attr('id').split('-')[1];
+      $('.onion-container').addClass('floating').css('mix-blend-mode', 'normal');
+      getOnionLayer(index).addClass('hover');
+    })
+    .bind('mouseleave touchend', function() {
+      var index = $(this).attr('id').split('-')[1];
+      $('.onion-container').removeClass('floating').css('mix-blend-mode', '');
+      getOnionLayer(index).removeClass('hover');
+    });
+  }
 
 
 
@@ -99,7 +143,7 @@ $(document).ready(function() {
       $('header h1').css('color', 'white'); // make LOVE IN THE CLOUD h1 white
       $('header nav ul').addClass('show-all'); // show ABOUT and CONTRIBUTORS links in header nav
       $('header nav ul li#header-nav-link_index').addClass('current');
-      
+      setupOnionNav();
       setupContributorsDirectory();
     } else {
       $('.onion-container').addClass('floating');
@@ -208,14 +252,14 @@ $(document).ready(function() {
       playRandomChoppingSound();
       $('.onion-container').css('mix-blend-mode', '');
       getOnionLayer(index).removeClass('hover');
-      $(this).off('mouseleave');
+      $(this).off('mouseleave').off('touchend');
     })
-    .mouseenter(function() {
+    .bind('mouseenter touchstart', function() {
       var index = $(this).attr('id').split('-')[1];
       $('.onion-container').addClass('floating').css('mix-blend-mode', 'normal');
       getOnionLayer(index).addClass('hover');
     })
-    .mouseleave(function() {
+    .bind('mouseleave touchend', function() {
       var index = $(this).attr('id').split('-')[1];
       $('.onion-container').removeClass('floating').css('mix-blend-mode', '');
       getOnionLayer(index).removeClass('hover');

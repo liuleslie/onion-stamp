@@ -22,16 +22,23 @@ button
   color: inherit
   font: inherit
 header
-  position: absolute
-  top: 2em
-  left: 2em
-  right: 2em
-  z-index: 100
-  @media screen and (max-width: $breakpoint)
-    top: 1em
-    left: 1em
-    right: 1em
+  // position: absolute
+  // top: 2em
+  // left: 2em
+  // right: 2em
+  // z-index: 100
+  // @media screen and (max-width: $breakpoint)
+  //   top: 1em
+  //   left: 1em
+  //   right: 1em
   h1
+    position: absolute
+    top: 2em
+    left: 2em
+    z-index: 100
+    @media screen and (max-width: $breakpoint)
+      top: 1em
+      left: 1em
     float: left
     margin: 0
     font-size: inherit
@@ -39,7 +46,14 @@ header
     padding: 5px 0
     color: white
   nav
-    float: right
+    position: absolute
+    top: 2em
+    right: 2em
+    z-index: 100
+    @media screen and (max-width: $breakpoint)
+      top: 1em
+      right: 1em
+    // float: right
     ul
       margin: 0
       padding: 0
@@ -77,6 +91,7 @@ header
   justify-content: center
   align-items: center
   z-index: 2
+  overflow: hidden
   &.floating
     position: fixed
     top: 0
@@ -97,82 +112,83 @@ header
       transition: border-color ease-out 0.1s
       cursor: pointer
       z-index: 100
-      @media screen and (max-width: $breakpoint)
-        border-width: 12px
       &.current .layer
         visibility: hidden
       &#layer-1
         border-color: rgba(255,255,255,0.05)
-        &:hover, &.hover
+        &.hover
           border-color: #b3712e
       &#layer-2
         border-color: rgba(255,255,255,0.10)
-        &:hover, &.hover
+        &.hover
           border-color: RoyalBlue
       &#layer-3
         border-color: rgba(255,255,255,0.15)
-        &:hover, &.hover
+        &.hover
           border-color: Tomato
       &#layer-4
         border-color: rgba(255,255,255,0.20)
-        &:hover, &.hover
+        &.hover
           border-color: LimeGreen
       &#layer-5
         border-color: rgba(255,255,255,0.25)
-        &:hover, &.hover
+        &.hover
           border-color: Aquamarine
       &#layer-6
         border-color: rgba(255,255,255,0.3)
-        &:hover, &.hover
+        &.hover
           border-color: MidnightBlue
       &#layer-7
         border-color: rgba(255,255,255,0.35)
-        &:hover, &.hover
+        &.hover
           border-color: DarkOrchid
       &#layer-8
         border-color: rgba(255,255,255,0.4)
-        &:hover, &.hover
+        &.hover
           border-color: OrangeRed
       &#layer-9
         border-color: rgba(255,255,255,0.45)
-        &:hover, &.hover
+        &.hover
           border-color: Snow
       &#layer-10
         border-color: rgba(255,255,255,0.50)
-        &:hover, &.hover
+        &.hover
           border-color: DodgerBlue
       &#layer-11
         border-color: rgba(255,255,255,0.55)
-        &:hover, &.hover
+        &.hover
           border-color: PapayaWhip
       &#layer-12
         border-color: rgba(255,255,255,0.60)
-        &:hover, &.hover
+        &.hover
           border-color: LightPink
       &#layer-13
         border-color: rgba(255,255,255,0.65)
-        &:hover, &.hover
+        &.hover
           border-color: PaleGreen
       &#layer-14
         border-color: rgba(255,255,255,0.70)
-        &:hover, &.hover
+        &.hover
           border-color: Blue
       &#layer-15
         border-color: rgba(255,255,255,0.75)
-        &:hover, &.hover
+        &.hover
           border-color: Chartreuse
       &#layer-16
         border-color: rgba(255,255,255,0.80)
-        &:hover, &.hover
+        &.hover
           border-color: ForestGreen
       &#layer-17
         border-color: rgba(255,255,255,0.85)
-        &:hover, &.hover
+        &.hover
           border-color: Khaki
       &#layer-18
         border-color: rgba(255,255,255,0.9)
-        &:hover, &.hover
+        &.hover
           border-color: Coral
+      @media screen and (max-width: $breakpoint)
+        border-top-width: 24px
+        border-bottom-width: 0
 button.peel-button
   position: fixed
   bottom: 0
@@ -218,9 +234,11 @@ section
     right: 0
     z-index: 1
     pointer-events: none
-    // display: none
   .section-content
     width: 100%
+    overflow-x: hidden
+    overflow-wrap: break-word
+    word-wrap: break-word
     article
       width: calc(100% - 4em)
       max-width: 600px
@@ -229,12 +247,14 @@ section
         width: calc(100% - 2em)
       h2
         line-height: 1.166
-      figure.illustration
-        padding: 0 2em
-        @media screen and (max-width: $breakpoint)
-          padding: 0
+      figure
+        margin: 0
         img
           width: 100%
+        &.illustration
+          padding: 0 2em
+          @media screen and (max-width: $breakpoint)
+            padding: 0
       .text-footer
         font-style: italic
       .response
@@ -335,12 +355,14 @@ section#section-0
     #contributors
       position: relative
       z-index: 3
-      margin: -6em 2em 2em
-      padding-top: 6em
+      margin: -2em 2em 0
+      padding-top: 2em
       // padding-top: 2em
       @media screen and (max-width: $breakpoint)
-        margin: -6em 1em 6em
-        padding-top: 6em
+        margin: -2em 1em 0
+        padding-top: 2em
+      h2
+        margin-bottom: 0
       ol
         position: relative
         margin: 0
@@ -349,10 +371,14 @@ section#section-0
         flex-wrap: wrap
         list-style: none
         li
-          margin-bottom: 4em
+          padding-top: 2em
+          padding-bottom: 2em
           flex: 0 0 25%
           text-align: center
           cursor: pointer
+          -webkit-touch-callout: none
+          -webkit-user-select: none
+          user-select: none
           @media screen and (max-width: 720px)
             flex: 0 0 50%
           figure
@@ -361,6 +387,7 @@ section#section-0
             img
               width: 100%
               filter: drop-shadow(0 0 0 black)
+              pointer-events: none
 
 
 section#section-1
