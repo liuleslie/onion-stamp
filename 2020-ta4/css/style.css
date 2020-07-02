@@ -1,0 +1,795 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  font-family: monospace;
+  font-size: 18px;
+  line-height: 21px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+
+header h1 {
+  position: absolute;
+  top: 2em;
+  left: 2em;
+  z-index: 100;
+  float: left;
+  margin: 0;
+  font-size: inherit;
+  font-weight: normal;
+  padding: 5px 0;
+  color: white;
+}
+@media screen and (max-width: 480px) {
+  header h1 {
+    top: 1em;
+    left: 1em;
+  }
+}
+header nav {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  z-index: 100;
+}
+@media screen and (max-width: 480px) {
+  header nav {
+    top: 1em;
+    right: 1em;
+  }
+}
+header nav ul {
+  margin: 0;
+  padding: 0;
+}
+header nav ul li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  color: #0e2e5d;
+  text-decoration: none;
+  background: white;
+  padding: 5px 8px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+header nav ul li a {
+  text-decoration: none;
+}
+header nav ul li.current, header nav ul body.index header li#index {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+header nav ul li:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white !important;
+}
+header nav ul li#header-nav-link_about, header nav ul li#header-nav-link_contributors {
+  display: none;
+}
+header nav ul.show-all li#header-nav-link_about, header nav ul.show-all li#header-nav-link_contributors {
+  display: block;
+}
+
+.onion-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  overflow: hidden;
+}
+.onion-container.floating {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+.onion-container .onion {
+  position: absolute;
+  border-radius: 50%;
+}
+.onion-container .onion .layer {
+  border-width: 18px;
+  border-style: solid;
+  border-radius: 50%;
+  box-sizing: border-box;
+  mix-blend-mode: normal;
+  transition: border-color ease-out 0.1s;
+  cursor: pointer;
+  z-index: 100;
+}
+.onion-container .onion .layer.current .layer {
+  visibility: hidden;
+}
+.onion-container .onion .layer#layer-1 {
+  border-color: rgba(255, 255, 255, 0.05);
+}
+.onion-container .onion .layer#layer-1.hover {
+  border-color: #b3712e;
+}
+.onion-container .onion .layer#layer-2 {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.onion-container .onion .layer#layer-2.hover {
+  border-color: RoyalBlue;
+}
+.onion-container .onion .layer#layer-3 {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.onion-container .onion .layer#layer-3.hover {
+  border-color: Tomato;
+}
+.onion-container .onion .layer#layer-4 {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.onion-container .onion .layer#layer-4.hover {
+  border-color: LimeGreen;
+}
+.onion-container .onion .layer#layer-5 {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.onion-container .onion .layer#layer-5.hover {
+  border-color: Aquamarine;
+}
+.onion-container .onion .layer#layer-6 {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.onion-container .onion .layer#layer-6.hover {
+  border-color: MidnightBlue;
+}
+.onion-container .onion .layer#layer-7 {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.onion-container .onion .layer#layer-7.hover {
+  border-color: DarkOrchid;
+}
+.onion-container .onion .layer#layer-8 {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.onion-container .onion .layer#layer-8.hover {
+  border-color: OrangeRed;
+}
+.onion-container .onion .layer#layer-9 {
+  border-color: rgba(255, 255, 255, 0.45);
+}
+.onion-container .onion .layer#layer-9.hover {
+  border-color: Snow;
+}
+.onion-container .onion .layer#layer-10 {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.onion-container .onion .layer#layer-10.hover {
+  border-color: DodgerBlue;
+}
+.onion-container .onion .layer#layer-11 {
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.onion-container .onion .layer#layer-11.hover {
+  border-color: PapayaWhip;
+}
+.onion-container .onion .layer#layer-12 {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+.onion-container .onion .layer#layer-12.hover {
+  border-color: LightPink;
+}
+.onion-container .onion .layer#layer-13 {
+  border-color: rgba(255, 255, 255, 0.65);
+}
+.onion-container .onion .layer#layer-13.hover {
+  border-color: PaleGreen;
+}
+.onion-container .onion .layer#layer-14 {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+.onion-container .onion .layer#layer-14.hover {
+  border-color: Blue;
+}
+.onion-container .onion .layer#layer-15 {
+  border-color: rgba(255, 255, 255, 0.75);
+}
+.onion-container .onion .layer#layer-15.hover {
+  border-color: Chartreuse;
+}
+.onion-container .onion .layer#layer-16 {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+.onion-container .onion .layer#layer-16.hover {
+  border-color: ForestGreen;
+}
+.onion-container .onion .layer#layer-17 {
+  border-color: rgba(255, 255, 255, 0.85);
+}
+.onion-container .onion .layer#layer-17.hover {
+  border-color: Khaki;
+}
+.onion-container .onion .layer#layer-18 {
+  border-color: rgba(255, 255, 255, 0.9);
+}
+.onion-container .onion .layer#layer-18.hover {
+  border-color: Coral;
+}
+@media screen and (max-width: 480px) {
+  .onion-container .onion .layer {
+    border-top-width: 24px;
+    border-bottom-width: 0;
+  }
+}
+
+button.peel-button {
+  position: fixed;
+  bottom: 2em;
+  left: 2em;
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  z-index: 100;
+  padding: 5px 8px;
+  cursor: pointer;
+  background: white;
+  transition: background ease-out 0.1s;
+  display: block;
+}
+@media screen and (max-width: 480px) {
+  button.peel-button {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2em;
+    border-radius: 0;
+  }
+}
+button.peel-button.hidden {
+  display: none;
+}
+
+section {
+  display: none;
+  width: 100%;
+}
+section.current {
+  position: relative;
+  display: block;
+}
+section.current + section {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -2;
+}
+section.current .section-color-backdrop {
+  opacity: 0.95;
+}
+section .section-color-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+section .section-color-edges {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+@media screen and (max-width: 480px) {
+  section .section-color-edges {
+    bottom: 2em;
+  }
+}
+section .section-content {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+section .section-content article {
+  width: calc(100% - 4em);
+  max-width: 600px;
+  margin-bottom: 4em;
+}
+@media screen and (max-width: 480px) {
+  section .section-content article {
+    width: calc(100% - 2em);
+  }
+}
+section .section-content article h2 {
+  line-height: 1.166;
+}
+section .section-content article figure {
+  margin: 0;
+}
+section .section-content article figure img {
+  max-width: 100%;
+}
+section .section-content article figure.illustration {
+  padding: 0 2em;
+}
+@media screen and (max-width: 480px) {
+  section .section-content article figure.illustration {
+    padding: 0;
+  }
+}
+section .section-content article .text-footer {
+  font-style: italic;
+}
+section .section-content article .response {
+  margin-top: 4em;
+  margin-bottom: 4em;
+  font-size: 0.8333em;
+  line-height: 1.1666;
+}
+section .section-content.placement_center {
+  min-height: 100vh;
+  padding: 2em 0 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 480px) {
+  section .section-content.placement_center {
+    padding: 4em 0 1em;
+  }
+}
+section .section-content.placement_center article figure.illustration {
+  margin: 0;
+}
+section .section-content.placement_top article {
+  padding-top: 6em;
+}
+@media screen and (max-width: 480px) {
+  section .section-content.placement_top article {
+    padding-top: 4em;
+  }
+}
+section .section-content.placement_left article {
+  margin-left: 2em;
+  margin-right: auto;
+  padding-top: 20em;
+}
+section .section-content.placement_left article p:before, section .section-content.placement_left article h2:before {
+  content: "";
+  width: 6em;
+  display: block;
+  overflow: hidden;
+}
+section .section-content.placement_left article figure.illustration {
+  float: right;
+  margin: 0;
+  margin-right: calc(100% - 100vw + 4em);
+  margin-top: -16em;
+  width: 100%;
+}
+@media screen and (max-width: 480px) {
+  section .section-content.placement_left article {
+    margin-left: 1em;
+    padding-top: 4em;
+  }
+  section .section-content.placement_left article figure.illustration {
+    float: none;
+    margin: 0;
+  }
+}
+section .section-content.placement_right article {
+  margin-right: 2em;
+  margin-left: auto;
+  padding-top: 20em;
+}
+section .section-content.placement_right article p:before, section .section-content.placement_right article h2:before {
+  content: "";
+  width: 6em;
+  display: block;
+  overflow: hidden;
+}
+section .section-content.placement_right article figure.illustration {
+  float: left;
+  margin: 0;
+  margin-left: calc(100% - 100vw + 4em);
+  margin-top: -16em;
+  width: 100%;
+}
+@media screen and (max-width: 480px) {
+  section .section-content.placement_right article {
+    margin-right: 1em;
+    padding-top: 4em;
+  }
+  section .section-content.placement_right article figure.illustration {
+    float: none;
+    margin: 0;
+  }
+}
+
+section#section-0 #sky-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  overflow-y: hidden;
+  opacity: 0;
+  transition: opacity 2s;
+}
+section#section-0 #sky-backdrop.shown {
+  opacity: 1;
+}
+section#section-0 #sky-backdrop img {
+  max-width: none;
+  min-width: 100%;
+  width: auto;
+  height: 150vh;
+  position: absolute;
+  top: 0;
+}
+section#section-0 .section-content {
+  padding-top: 100vh;
+}
+section#section-0 .section-content #about {
+  position: relative;
+  margin: 2em;
+  margin-top: -8em;
+  padding-top: 2em;
+}
+@media screen and (max-width: 480px) {
+  section#section-0 .section-content #about {
+    margin: 1em;
+    margin-top: -6em;
+  }
+}
+section#section-0 .section-content #contributors {
+  position: relative;
+  z-index: 3;
+  margin: -2em 2em 0;
+  padding-top: 2em;
+}
+@media screen and (max-width: 480px) {
+  section#section-0 .section-content #contributors {
+    margin: -2em 1em 0;
+    padding-top: 2em;
+  }
+}
+section#section-0 .section-content #contributors h2 {
+  margin-bottom: 0;
+}
+section#section-0 .section-content #contributors ol {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+section#section-0 .section-content #contributors ol li {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  flex: 0 0 25%;
+  text-align: center;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+@media screen and (max-width: 720px) {
+  section#section-0 .section-content #contributors ol li {
+    flex: 0 0 50%;
+  }
+}
+section#section-0 .section-content #contributors ol li .contributor-title {
+  display: inline-block;
+  padding: 0.5em;
+  background: transparent;
+  transition: background 0.1s linear, color 0.1s linear;
+}
+section#section-0 .section-content #contributors ol li figure {
+  margin: 0;
+  width: 100%;
+}
+section#section-0 .section-content #contributors ol li figure img {
+  width: 100%;
+  filter: drop-shadow(0 0 0 black);
+  pointer-events: none;
+}
+
+section#section-1 > div.section-color-backdrop {
+  background: #b3712e;
+}
+section#section-1 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em #b3712e;
+}
+@media screen and (max-width: 480px) {
+  section#section-1 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em #b3712e;
+  }
+}
+section#section-1 > div.section-content {
+  color: white;
+  padding: 4em 0 2em;
+}
+
+section#section-2 > div.section-color-backdrop {
+  background: RoyalBlue;
+}
+section#section-2 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em RoyalBlue;
+}
+@media screen and (max-width: 480px) {
+  section#section-2 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em RoyalBlue;
+  }
+}
+section#section-2 > div.section-content {
+  color: white;
+}
+section#section-2 > div.section-content article figure {
+  filter: invert();
+}
+
+section#section-3 > div.section-color-backdrop {
+  background: Tomato;
+  opacity: 0.9;
+}
+section#section-3 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em Tomato;
+}
+@media screen and (max-width: 480px) {
+  section#section-3 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em Tomato;
+  }
+}
+
+section#section-4 > div.section-color-backdrop {
+  background: LimeGreen;
+}
+section#section-4 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em LimeGreen;
+}
+@media screen and (max-width: 480px) {
+  section#section-4 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em LimeGreen;
+  }
+}
+section#section-4 table tr td {
+  vertical-align: top;
+  padding-bottom: 0.5em;
+}
+section#section-4 table tr td:first-child {
+  padding-right: 0.5em;
+}
+
+section#section-5 > div.section-color-backdrop {
+  background: Aquamarine;
+}
+section#section-5 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em Aquamarine;
+}
+@media screen and (max-width: 480px) {
+  section#section-5 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em Aquamarine;
+  }
+}
+
+section#section-6 > div.section-color-backdrop {
+  background: MidnightBlue;
+}
+section#section-6 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em MidnightBlue;
+}
+@media screen and (max-width: 480px) {
+  section#section-6 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em MidnightBlue;
+  }
+}
+section#section-6 > div.section-content {
+  color: white;
+}
+section#section-6 > div.section-content figure {
+  filter: invert();
+}
+
+section#section-7 > div.section-color-backdrop {
+  background: DarkOrchid;
+}
+section#section-7 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em DarkOrchid;
+}
+@media screen and (max-width: 480px) {
+  section#section-7 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em DarkOrchid;
+  }
+}
+
+section#section-8 > div.section-color-backdrop {
+  background: OrangeRed;
+}
+section#section-8 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em OrangeRed;
+}
+@media screen and (max-width: 480px) {
+  section#section-8 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em OrangeRed;
+  }
+}
+
+section#section-9 > div.section-color-backdrop {
+  background: Snow;
+}
+section#section-9 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em Snow;
+}
+@media screen and (max-width: 480px) {
+  section#section-9 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em Snow;
+  }
+}
+
+section#section-10 > div.section-color-backdrop {
+  background: DodgerBlue;
+}
+section#section-10 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em DodgerBlue;
+}
+@media screen and (max-width: 480px) {
+  section#section-10 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em DodgerBlue;
+  }
+}
+
+section#section-11 > div.section-color-backdrop {
+  background: PapayaWhip;
+}
+section#section-11 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em PapayaWhip;
+}
+@media screen and (max-width: 480px) {
+  section#section-11 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em PapayaWhip;
+  }
+}
+
+section#section-12 > div.section-color-backdrop {
+  background: LightPink;
+}
+section#section-12 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em LightPink;
+}
+@media screen and (max-width: 480px) {
+  section#section-12 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em LightPink;
+  }
+}
+
+section#section-13 > div.section-color-backdrop {
+  background: PaleGreen;
+}
+section#section-13 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em PaleGreen;
+}
+@media screen and (max-width: 480px) {
+  section#section-13 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em PaleGreen;
+  }
+}
+
+section#section-14 > div.section-color-backdrop {
+  background: Blue;
+}
+section#section-14 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em Blue;
+}
+@media screen and (max-width: 480px) {
+  section#section-14 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em Blue;
+  }
+}
+section#section-14 > div.section-content {
+  color: white;
+}
+section#section-14 > div.section-content figure {
+  filter: invert();
+}
+
+section#section-15 > div.section-color-backdrop {
+  background: Chartreuse;
+}
+section#section-15 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em Chartreuse;
+}
+@media screen and (max-width: 480px) {
+  section#section-15 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em Chartreuse;
+  }
+}
+
+section#section-16 > div.section-color-backdrop {
+  background: ForestGreen;
+}
+section#section-16 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em ForestGreen;
+}
+@media screen and (max-width: 480px) {
+  section#section-16 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em ForestGreen;
+  }
+}
+section#section-16 > div.section-content {
+  color: white;
+}
+section#section-16 > div.section-content figure {
+  filter: invert();
+}
+
+section#section-17 > div.section-color-backdrop {
+  background: Khaki;
+}
+section#section-17 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em Khaki;
+}
+@media screen and (max-width: 480px) {
+  section#section-17 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em Khaki;
+  }
+}
+
+section#section-18 > div.section-color-backdrop {
+  background: Coral;
+}
+section#section-18 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em Coral;
+}
+@media screen and (max-width: 480px) {
+  section#section-18 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em Coral;
+  }
+}
+
+pre {
+  overflow: scroll;
+}
+
+.sounds {
+  position: fixed;
+  z-index: -100;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/*# sourceMappingURL=style.css.map */
