@@ -113,6 +113,7 @@ $(document).ready(function() {
 
     // INDEX
     if (newSectionIndex == 0) {
+      // this is for the 0th section (outside, where the clouds are)
       $('.onion-container').removeClass('floating');
       $('.peel-button').addClass('hidden');
       background.measure(); // re-calculate sky background
@@ -122,17 +123,19 @@ $(document).ready(function() {
       setupOnionNav();
       setupContributorsDirectory();
     } else {
+      // this is for every other section
       $('.onion-container').addClass('floating');
       $('.peel-button').removeClass('hidden');
       $('header h1').css('color', $('section.current > .section-content').css('color')); // make LOVE IN THE CLOUD h1 match the section's text color
       $('header nav ul').removeClass('show-all'); // hide ABOUT and CONTRIBUTORS links in header nav
       $('header nav ul li#header-nav-link_index').removeClass('current');
 
+      // if there is a next section, set the peel button to the next section's color
       if (currentSectionIndex < allSections.length - 1) {
-        $('.peel-button').css('background', $('section.current + section > .section-color-backdrop').css('background'));
-        $('.peel-button').css('color', $('section.current + section > .section-content').css('color'));
-      }
-      else {
+        $('.peel-button').css('background', $('section.current + section > .section-color-backdrop').css('background-color')); // get the background color of the next section
+        $('.peel-button').css('color', $('section.current + section > .section-content').css('color')); // get the text color of the next section
+      } else {
+        // if there is no next section, set the peel button to black and white.
         $('.peel-button').css('background', 'white');
         $('.peel-button').css('color', 'black');
       }
