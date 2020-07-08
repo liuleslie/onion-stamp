@@ -14,6 +14,8 @@ body
   width: 100%
   height: 100%
   margin: 0
+main
+  overflow: hidden
 a
   color: inherit
 button
@@ -258,6 +260,9 @@ section
         margin: 0
         img
           max-width: 100%
+        figcaption
+          font-size: 0.8333em
+          margin-bottom: 1.5em
         &.illustration
           padding: 0 2em
           @media screen and (max-width: $breakpoint)
@@ -338,7 +343,7 @@ section#section-0
     bottom: 0
     right: 0
     z-index: -1
-    overflow-y: hidden
+    overflow: hidden
     opacity: 0
     transition: opacity 2s
     &.shown
@@ -443,11 +448,17 @@ section#section-4
     @media screen and (max-width: $breakpoint)
       box-shadow: inset 0 0 0.5em 0.5em LimeGreen
   table
+    border: 1px solid #000
+    border-collapse: collapse
     tr td
+      border: 1px solid #000
+      border-collapse: collapse
       vertical-align: top
       padding-bottom: 0.5em
       &:first-child
         padding-right: 0.5em
+    td
+      padding: 0.5em
 
 section#section-5
   & > div.section-color-backdrop
@@ -563,8 +574,8 @@ section#section-19
     @media screen and (max-width: $breakpoint)
       box-shadow: inset 0 0 0.5em 0.5em SkyBlue
     
-pre
-  overflow: scroll
+// pre
+//   overflow: scroll
 
 // figure
 //   margin: 1.4em 0

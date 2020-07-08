@@ -18,6 +18,10 @@ body {
   margin: 0;
 }
 
+main {
+  overflow: hidden;
+}
+
 a {
   color: inherit;
 }
@@ -350,6 +354,10 @@ section .section-content article figure {
 section .section-content article figure img {
   max-width: 100%;
 }
+section .section-content article figure figcaption {
+  font-size: 0.8333em;
+  margin-bottom: 1.5em;
+}
 section .section-content article figure.illustration {
   padding: 0 2em;
 }
@@ -455,7 +463,7 @@ section#section-0 #sky-backdrop {
   bottom: 0;
   right: 0;
   z-index: -1;
-  overflow-y: hidden;
+  overflow: hidden;
   opacity: 0;
   transition: opacity 2s;
 }
@@ -597,12 +605,21 @@ section#section-4 > div.section-color-edges {
     box-shadow: inset 0 0 0.5em 0.5em LimeGreen;
   }
 }
+section#section-4 table {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
 section#section-4 table tr td {
+  border: 1px solid #000;
+  border-collapse: collapse;
   vertical-align: top;
   padding-bottom: 0.5em;
 }
 section#section-4 table tr td:first-child {
   padding-right: 0.5em;
+}
+section#section-4 table td {
+  padding: 0.5em;
 }
 
 section#section-5 > div.section-color-backdrop {
@@ -795,10 +812,6 @@ section#section-19 > div.section-color-edges {
   section#section-19 > div.section-color-edges {
     box-shadow: inset 0 0 0.5em 0.5em SkyBlue;
   }
-}
-
-pre {
-  overflow: scroll;
 }
 
 .sounds {
