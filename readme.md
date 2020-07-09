@@ -1,6 +1,6 @@
-#internet onion
+# internet onion
 
-the site is published through github pages at the custom domain:
+the site is published through github pages at the custom domain:<br>
 https://the-life-and-death-of-an-internet-onion.com
 
 the published folder is `docs/`
