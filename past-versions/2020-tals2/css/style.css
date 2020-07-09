@@ -253,6 +253,12 @@ header nav ul.show-all li#header-nav-link_about, header nav ul.show-all li#heade
 .onion-container .onion .layer#layer-19.hover {
   border-color: SkyBlue;
 }
+.onion-container .onion .layer#layer-20 {
+  border-color: rgba(255, 255, 255, 0.9);
+}
+.onion-container .onion .layer#layer-20.hover {
+  border-color: BurlyWood;
+}
 @media screen and (max-width: 480px) {
   .onion-container .onion .layer {
     border-top-width: 24px;
@@ -811,6 +817,18 @@ section#section-19 > div.section-color-edges {
 @media screen and (max-width: 480px) {
   section#section-19 > div.section-color-edges {
     box-shadow: inset 0 0 0.5em 0.5em SkyBlue;
+  }
+}
+
+section#section-20 > div.section-color-backdrop {
+  background: BurlyWood;
+}
+section#section-20 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em BurlyWood;
+}
+@media screen and (max-width: 480px) {
+  section#section-20 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em BurlyWood;
   }
 }
 
