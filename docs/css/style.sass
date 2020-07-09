@@ -32,6 +32,8 @@ header
     top: 2em
     left: 2em
     z-index: 100
+    @media screen and (max-width: 715px)
+      right: 12em
     @media screen and (max-width: $breakpoint)
       top: 1em
       left: 1em
@@ -278,6 +280,13 @@ section
         margin-bottom: 4em
         font-size: 0.8333em
         line-height: 1.1666
+      .excerpts
+        float: right
+        margin-right: calc(100% - 100vw + 4em)
+        max-width: 600px
+        margin-top: 4em
+        margin-bottom: 4em
+        font-family: serif
     &.placement_center
       min-height: 100vh
       padding: 2em 0 2em
