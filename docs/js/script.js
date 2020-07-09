@@ -70,14 +70,14 @@ $(document).ready(function() {
     .bind('mouseenter touchstart', function() {
       var index = $(this).attr('id').split('-')[1];
       var section = getSection(index);
-      var sectionColor = $(section).find('.section-color-backdrop').css('background');
+      var sectionColor = $(section).find('.section-color-backdrop').css('background-color');
       var sectionTextColor = $(section).find('.section-content').css('color');
       var contributorTitle = $(this).find('span.contributor-title');
-      contributorTitle.css('background', sectionColor);
+      contributorTitle.css('background-color', sectionColor);
       contributorTitle.css('color', sectionTextColor);
     })
     .bind('mouseleave touchend', function() {
-      $(this).find('span.contributor-title').css('background', '');
+      $(this).find('span.contributor-title').css('background-color', '');
       $(this).find('span.contributor-title').css('color', '');
     });
   }
