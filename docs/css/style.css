@@ -845,6 +845,18 @@ section#section-20 > div.section-color-edges {
   }
 }
 
+section#section-20 article {
+  padding-top: 8em;
+}
+section#section-20 .highlight {
+  font-style: italic;
+}
+section#section-20 h3 {
+  font-size: 1em;
+  margin-top: 2em;
+  font-weight: normal;
+}
+
 .sounds {
   position: fixed;
   z-index: -100;
