@@ -1,3 +1,24 @@
+.future-onion {
+  text-align: center;
+  position: fixed;
+  bottom: 2em;
+  left: 1em;
+  right: 1em;
+  color: #b3712e;
+  background: snow;
+  padding: 1em;
+  padding-left: 8em;
+  padding-right: 8em;
+  padding-top: 0;
+  box-shadow: 0 0 2em 2em snow;
+}
+@media screen and (max-width: 480px) {
+  .future-onion {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
