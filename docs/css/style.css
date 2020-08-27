@@ -887,4 +887,13 @@ section#section-20 h3 {
   pointer-events: none;
 }
 
+section,
+header nav,
+header h1,
+button.peel-button,
+.onion-container {
+  filter: blur(2px);
+  opacity: 0.95;
+}
+
 /*# sourceMappingURL=style.css.map */
