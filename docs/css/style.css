@@ -934,6 +934,16 @@ button.peel-button,
 .onion-container {
   filter: blur(18px) saturate(60%);
   opacity: 0.5;
+  /* PHASE 5 */
+}
+
+section,
+header nav,
+header h1,
+button.peel-button,
+.onion-container {
+  filter: blur(24px) saturate(50%);
+  opacity: 0.45;
 }
 
 /*# sourceMappingURL=style.css.map */
