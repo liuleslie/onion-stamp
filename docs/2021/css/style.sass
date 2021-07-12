@@ -1,0 +1,713 @@
+$breakpoint: 480px
+
+.future-onion
+  text-align: center
+  position: fixed
+  bottom: 2em
+  left: 1em
+  right: 1em
+  color: #b3712e
+  background: snow
+  padding: 1em
+  padding-left: 8em
+  padding-right: 8em
+  padding-top: 0
+  box-shadow: 0 0 2em 2em snow
+  @media screen and (max-width: $breakpoint)
+    padding-left: 1em
+    padding-right: 1em
+
+*
+  box-sizing: border-box
+html
+  width: 100%
+  height: 100%
+  font-family: monospace
+  font-size: 18px
+  line-height: 21px
+  -webkit-font-smoothing: antialiased
+body
+  position: relative
+  width: 100%
+  height: 100%
+  margin: 0
+main
+  overflow: hidden
+a
+  color: inherit
+button
+  border: none
+  background: none
+  color: inherit
+  font: inherit
+blockquote
+  margin: 0
+  font-style: italic
+header
+  h1
+    position: absolute
+    top: 2em
+    left: 2em
+    z-index: 100
+    @media screen and (max-width: 715px)
+      right: 12em
+    @media screen and (max-width: $breakpoint)
+      top: 1em
+      left: 1em
+    float: left
+    margin: 0
+    font-size: inherit
+    font-weight: normal
+    padding: 5px 0
+    color: white
+  nav
+    position: absolute
+    top: 2em
+    right: 2em
+    z-index: 100
+    @media screen and (max-width: $breakpoint)
+      top: 1em
+      right: 1em
+    // float: right
+    ul
+      margin: 0
+      padding: 0
+      li
+        margin: 0
+        padding: 0
+        list-style-type: none
+        color: #0e2e5d
+        text-decoration: none
+        background: rgba(255,255,255, 1)
+        padding: 5px 8px
+        text-transform: uppercase
+        cursor: pointer
+        a
+          text-decoration: none
+      li.current, body.index header li#index
+        background: rgba(255,255,255, 0.1)
+        color: white
+      li:hover
+        background: rgba(255,255,255, 0.1)
+        color: white !important
+      li#header-nav-link_about, li#header-nav-link_contributors
+        display: none
+      &.show-all
+        li#header-nav-link_about, li#header-nav-link_contributors
+          display: block
+
+.onion-container
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 2
+  overflow: hidden
+  &.floating
+    position: fixed
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    pointer-events: none
+    mix-blend-mode: overlay
+  .onion
+    position: absolute
+    border-radius: 50%
+    .layer
+      border-width: 18px
+      border-style: solid
+      border-radius: 50%
+      box-sizing: border-box
+      mix-blend-mode: normal
+      transition: border-color ease-out 0.1s
+      cursor: pointer
+      z-index: 100
+      &.current .layer
+        visibility: hidden
+      &#layer-1
+        border-color: rgba(255,255,255,0.05)
+        &.hover
+          border-color: #b3712e
+      &#layer-2
+        border-color: rgba(255,255,255,0.10)
+        &.hover
+          border-color: RoyalBlue
+      &#layer-3
+        border-color: rgba(255,255,255,0.15)
+        &.hover
+          border-color: Tomato
+      &#layer-4
+        border-color: rgba(255,255,255,0.20)
+        &.hover
+          border-color: LimeGreen
+      &#layer-5
+        border-color: rgba(255,255,255,0.25)
+        &.hover
+          border-color: MediumAquamarine
+      &#layer-6
+        border-color: rgba(255,255,255,0.3)
+        &.hover
+          border-color: MidnightBlue
+      &#layer-7
+        border-color: rgba(255,255,255,0.35)
+        &.hover
+          border-color: DarkOrchid
+      &#layer-8
+        border-color: rgba(255,255,255,0.4)
+        &.hover
+          border-color: Silver
+      &#layer-9
+        border-color: rgba(255,255,255,0.45)
+        &.hover
+          border-color: WhiteSmoke
+      &#layer-10
+        border-color: rgba(255,255,255,0.50)
+        &.hover
+          border-color: DodgerBlue
+      &#layer-11
+        border-color: rgba(255,255,255,0.55)
+        &.hover
+          border-color: PapayaWhip
+      &#layer-12
+        border-color: rgba(255,255,255,0.60)
+        &.hover
+          border-color: LightPink
+      &#layer-13
+        border-color: rgba(255,255,255,0.65)
+        &.hover
+          border-color: PaleGreen
+      &#layer-14
+        border-color: rgba(255,255,255,0.70)
+        &.hover
+          border-color: MediumBlue
+      &#layer-15
+        border-color: rgba(255,255,255,0.75)
+        &.hover
+          border-color: Gold
+      &#layer-16
+        border-color: rgba(255,255,255,0.80)
+        &.hover
+          border-color: YellowGreen
+      &#layer-17
+        border-color: rgba(255,255,255,0.85)
+        &.hover
+          border-color: Khaki
+      &#layer-18
+        border-color: rgba(255,255,255,0.9)
+        &.hover
+          border-color: Coral
+      &#layer-19
+        border-color: rgba(255,255,255,0.9)
+        &.hover
+          border-color: SkyBlue
+      &#layer-20
+        border-color: rgba(255,255,255,0.9)
+        &.hover
+          border-color: BurlyWood
+      &#layer-21
+        border-color: rgba(255,255,255,0.9)
+        &.hover
+          border-color: White
+      &#layer-22
+        border-color: rgba(255,255,255,0.9)
+        &.hover
+          border-color: LavenderBlush
+      &#layer-23
+        border-color: rgba(255,255,255,0.9)
+        &.hover
+          border-color: LightSalmon
+      &#layer-24
+        border-color: rgba(255,255,255,0.9)
+        &.hover
+          border-color: Orchid
+      &#layer-25
+        border-color: rgba(255,255,255,0.9)
+        &.hover
+          border-color: RosyBrown
+      &#layer-26
+        border-color: rgba(255,255,255,0.9)
+        &.hover
+          border-color: LemonChiffon
+      @media screen and (max-width: $breakpoint)
+        border-top-width: 24px
+        border-bottom-width: 0
+button.peel-button
+  position: fixed
+  bottom: 2em
+  left: 2em
+  width: 5em
+  height: 5em
+  border-radius: 50%
+  z-index: 100
+  padding: 5px 8px
+  cursor: pointer
+  background: white
+  transition: background ease-out 0.1s
+  display: block
+  @media screen and (max-width: $breakpoint)
+    bottom: 0
+    left: 0
+    width: 100%
+    height: 2em
+    border-radius: 0
+  &.hidden
+    display: none
+section
+  display: none
+  width: 100%
+  &.current
+    position: relative
+    display: block
+    & + section
+      display: block
+      position: fixed
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      z-index: -2
+    .section-color-backdrop
+      opacity: 0.95
+  .section-color-backdrop
+    position: fixed
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    z-index: -1
+  .section-color-edges
+    position: fixed
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    z-index: 1
+    pointer-events: none
+    @media screen and (max-width: $breakpoint)
+      bottom: 2em
+  .section-content
+    width: 100%
+    overflow-x: hidden
+    overflow-wrap: break-word
+    word-wrap: break-word
+    article
+      width: calc(100% - 4em)
+      max-width: 600px
+      margin-bottom: 4em
+      @media screen and (max-width: $breakpoint)
+        width: calc(100% - 2em)
+      h2
+        line-height: 1.166
+      figure
+        margin: 0
+        img
+          max-width: 100%
+        figcaption
+          font-size: 0.8333em
+          margin-bottom: 1.5em
+        &.illustration
+          padding: 0 2em
+          @media screen and (max-width: $breakpoint)
+            padding: 0
+      .text-footer
+        font-style: italic
+      .response
+        margin-top: 4em
+        margin-bottom: 4em
+        font-size: 0.8333em
+        line-height: 1.1666
+      .excerpts, .side-content
+        float: right
+        margin-right: calc(100% - 100vw + 4em)
+        max-width: 600px
+        margin-top: 4em
+        margin-bottom: 4em
+        font-family: serif
+      .marginalia
+        float: left
+        max-width: 600px
+        margin-bottom: 4em
+        margin-left: 4em
+    &.placement_center
+      min-height: 100vh
+      padding: 2em 0 2em
+      display: flex
+      justify-content: center
+      align-items: center
+      @media screen and (max-width: $breakpoint)
+        padding: 4em 0 1em
+      article figure.illustration
+        margin: 0
+    &.placement_top article
+      padding-top: 6em
+      @media screen and (max-width: $breakpoint)
+        padding-top: 4em
+    &.placement_left article
+      margin-left: 2em
+      margin-right: auto
+      margin-bottom: 10em
+      padding-top: 20em
+      // minimum width for paragraphs before float clear: 6em. Reference: https://css-tricks.com/minimum-paragraph-widths/
+      p:before, h2:before
+        content: ""
+        width: 6em
+        display: block
+        overflow: hidden
+      figure.illustration
+        float: right
+        margin: 0
+        margin-right: calc(100% - 100vw + 4em)
+        margin-top: -16em
+        width: 100%
+      @media screen and (max-width: $breakpoint)
+        margin-left: 1em
+        padding-top: 4em
+        figure.illustration
+          float: none
+          margin: 0
+    &.placement_right article
+      margin-right: 2em
+      margin-left: auto
+      padding-top: 20em
+      // minimum width for paragraphs before float clear: 6em. Reference: https://css-tricks.com/minimum-paragraph-widths/
+      p:before, h2:before
+        content: ""
+        width: 6em
+        display: block
+        overflow: hidden
+      figure.illustration
+        float: left
+        margin: 0
+        margin-left: calc(100% - 100vw + 4em)
+        margin-top: -16em
+        width: 100%
+      @media screen and (max-width: $breakpoint)
+        margin-right: 1em
+        padding-top: 4em
+        figure.illustration
+          float: none
+          margin: 0
+
+
+section#section-0
+  #sky-backdrop
+    position: fixed
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    z-index: -1
+    overflow: hidden
+    opacity: 0
+    transition: opacity 2s
+    &.shown
+      opacity: 1
+    img
+      max-width: none
+      min-width: 100%
+      width: auto
+      height: 150vh
+      position: absolute
+      top: 0
+  .section-content
+    padding-top: 100vh
+    #about
+      position: relative
+      margin: 2em
+      margin-top: -8em
+      padding-top: 2em
+      @media screen and (max-width: $breakpoint)
+        margin: 1em
+        margin-top: -6em
+    #contributors
+      position: relative
+      z-index: 3
+      margin: -2em 2em 0
+      padding-top: 2em
+      // padding-top: 2em
+      @media screen and (max-width: $breakpoint)
+        margin: -2em 1em 0
+        padding-top: 2em
+      h2
+        margin-bottom: 0
+      ol
+        position: relative
+        margin: 0
+        padding: 0
+        display: flex
+        flex-wrap: wrap
+        list-style: none
+        li
+          padding-top: 2em
+          padding-bottom: 2em
+          flex: 0 0 25%
+          text-align: center
+          cursor: pointer
+          -webkit-touch-callout: none
+          -webkit-user-select: none
+          user-select: none
+          @media screen and (max-width: 720px)
+            flex: 0 0 50%
+          .contributor-title
+            display: inline-block
+            padding: 0.5em
+            background: transparent
+            transition: background 0.1s linear, color 0.1s linear
+          figure
+            margin: 0
+            width: 100%
+            img
+              width: 100%
+              filter: drop-shadow(0 0 0 black)
+              pointer-events: none
+
+section#section-1
+  & > div.section-color-backdrop
+    background: #b3712e
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em #b3712e
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em #b3712e
+  & > div.section-content
+    color: white
+    padding: 4em 0 2em
+
+section#section-2
+  & > div.section-color-backdrop
+    background: RoyalBlue
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em RoyalBlue
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em RoyalBlue
+  & > div.section-content
+    color: white
+    article figure
+      filter: #{'invert()'}
+
+section#section-3
+  & > div.section-color-backdrop
+    background: Tomato
+    opacity: 0.9
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em Tomato
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em Tomato
+
+section#section-4
+  & > div.section-color-backdrop
+    background: LimeGreen
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em LimeGreen
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em LimeGreen
+  table
+    border: 1px solid #000
+    border-collapse: collapse
+    tr td
+      border: 1px solid #000
+      border-collapse: collapse
+      vertical-align: top
+      padding-bottom: 0.5em
+      &:first-child
+        padding-right: 0.5em
+    td
+      padding: 0.5em
+
+section#section-5
+  & > div.section-color-backdrop
+    background: MediumAquamarine
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em MediumAquamarine
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em MediumAquamarine
+section#section-6
+  & > div.section-color-backdrop
+    background: MidnightBlue
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em MidnightBlue
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em MidnightBlue
+  & > div.section-content
+    color: white
+    figure
+      filter: #{'invert()'}
+section#section-7
+  & > div.section-color-backdrop
+    background: DarkOrchid
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em DarkOrchid
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em DarkOrchid
+section#section-8
+  & > div.section-color-backdrop
+    background: Silver
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em Silver
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em Silver
+section#section-9
+  & > div.section-color-backdrop
+    background: WhiteSmoke
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em WhiteSmoke
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em WhiteSmoke
+section#section-10
+  & > div.section-color-backdrop
+    background: DodgerBlue
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em DodgerBlue
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em DodgerBlue
+section#section-11
+  & > div.section-color-backdrop
+    background: PapayaWhip
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em PapayaWhip
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em PapayaWhip
+section#section-12
+  & > div.section-color-backdrop
+    background: LightPink
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em LightPink
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em LightPink
+section#section-13
+  & > div.section-color-backdrop
+    background: PaleGreen
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em PaleGreen
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em PaleGreen
+section#section-14
+  & > div.section-color-backdrop
+    background: MediumBlue
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em MediumBlue
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em MediumBlue
+  & > div.section-content
+    color: white
+    figure
+      filter: #{'invert()'}
+section#section-15
+  & > div.section-color-backdrop
+    background: Gold
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em Gold
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em Gold
+section#section-16
+  & > div.section-color-backdrop
+    background: YellowGreen
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em YellowGreen
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em YellowGreen
+section#section-17
+  & > div.section-color-backdrop
+    background: Khaki
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em Khaki
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em Khaki
+section#section-18
+  & > div.section-color-backdrop
+    background: Coral
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em Coral
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em Coral
+section#section-19
+  & > div.section-color-backdrop
+    background: SkyBlue
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em SkyBlue
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em SkyBlue
+section#section-20
+  & > div.section-color-backdrop
+    background: BurlyWood
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em BurlyWood
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em BurlyWood
+section#section-20
+  article
+    padding-top: 8em
+  .highlight
+    // background: rgba(255,255,255,0.8)
+    font-style: italic
+  h3
+    font-size: 1em
+    margin-top: 2em
+    font-weight: normal
+section#section-21
+  & > div.section-color-backdrop
+    background: White
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em White
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em White
+section#section-22
+  & > div.section-color-backdrop
+    background: LavenderBlush
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em LavenderBlush
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em LavenderBlush
+section#section-23
+  & > div.section-color-backdrop
+    background: LightSalmon
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em LightSalmon
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em LightSalmon
+section#section-24
+  & > div.section-color-backdrop
+    background: Orchid
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em Orchid
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em Orchid
+section#section-25
+  & > div.section-color-backdrop
+    background: RosyBrown
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em RosyBrown
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em RosyBrown
+section#section-26
+  & > div.section-color-backdrop
+    background: LemonChiffon
+  & > div.section-color-edges
+    box-shadow: inset 0 0 2em 1em LemonChiffon
+    @media screen and (max-width: $breakpoint)
+      box-shadow: inset 0 0 0.5em 0.5em LemonChiffon
+// pre
+//   overflow: scroll
+
+// figure
+//   margin: 1.4em 0
+//   padding: 0
+
+// figcaption
+//   font-size: 0.75em
+//   letter-spacing: 0.025em
+
+.sounds
+  position: fixed
+  z-index: -100
+  top: 0
+  left: 0
+  visibility: hidden
+  pointer-events: none
+
+// img
+//   max-width: 100%
