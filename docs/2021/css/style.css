@@ -321,6 +321,12 @@ header nav ul.show-all li#header-nav-link_about, header nav ul.show-all li#heade
 .onion-container .onion .layer#layer-26.hover {
   border-color: LemonChiffon;
 }
+.onion-container .onion .layer#layer-27 {
+  border-color: rgba(255, 255, 255, 0.9);
+}
+.onion-container .onion .layer#layer-27.hover {
+  border-color: DimGray;
+}
 @media screen and (max-width: 480px) {
   .onion-container .onion .layer {
     border-top-width: 24px;
@@ -989,6 +995,18 @@ section#section-26 > div.section-color-edges {
 @media screen and (max-width: 480px) {
   section#section-26 > div.section-color-edges {
     box-shadow: inset 0 0 0.5em 0.5em LemonChiffon;
+  }
+}
+
+section#section-27 > div.section-color-backdrop {
+  background: DimGray;
+}
+section#section-27 > div.section-color-edges {
+  box-shadow: inset 0 0 2em 1em DimGray;
+}
+@media screen and (max-width: 480px) {
+  section#section-27 > div.section-color-edges {
+    box-shadow: inset 0 0 0.5em 0.5em DimGray;
   }
 }
 
