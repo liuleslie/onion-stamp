@@ -34,6 +34,26 @@ $(document).ready(function() {
     getSection(0).find('#contributors')[0].scrollIntoView({behavior: 'smooth'});
     playRubbingSound();
   });
+  $('nav ul li#header-nav-link_support').click(function(event) {
+    event.preventDefault(); // prevent hyperlink default behavior
+    getSection(0).find('#support')[0].scrollIntoView({behavior: 'smooth'});
+    playRubbingSound();
+  });
+  $('nav ul li#header-nav-link_masthead').click(function(event) {
+    event.preventDefault(); // prevent hyperlink default behavior
+    getSection(0).find('#masthead')[0].scrollIntoView({behavior: 'smooth'});
+    playRubbingSound();
+  });
+  $('nav ul li#header-nav-link_links').click(function(event) {
+    event.preventDefault(); // prevent hyperlink default behavior
+    getSection(0).find('#links')[0].scrollIntoView({behavior: 'smooth'});
+    playRubbingSound();
+  });
+  $('nav ul li#header-nav-link_supporters').click(function(event) {
+    event.preventDefault(); // prevent hyperlink default behavior
+    getSection(0).find('#supporters')[0].scrollIntoView({behavior: 'smooth'});
+    playRubbingSound();
+  });
 
   /* ONION NAV */
   function setupOnionNav() {
@@ -82,6 +102,16 @@ $(document).ready(function() {
     });
   }
 
+  /* JUMP LINKS TO YEARS */
+  $('#jump-2020').click(function(){
+    goToSection(2);
+    playRandomChoppingSound();
+  });
+  $('#jump-2021').click(function(){
+    goToSection(23);
+    playRandomChoppingSound();
+  });
+
 
 
   /**
@@ -118,6 +148,8 @@ $(document).ready(function() {
       $('.peel-button').addClass('hidden');
       background.measure(); // re-calculate sky background
       $('header h1').css('color', 'white'); // make LOVE IN THE CLOUD h1 white
+      $('header h1').css('padding-right', '8em'); // more padding on right
+      $('#life-link').css('border-color', 'white'); // make life-link border white
       $('header nav ul').addClass('show-all'); // show ABOUT and CONTRIBUTORS links in header nav
       $('header nav ul li#header-nav-link_index').addClass('current');
       setupOnionNav();
@@ -127,6 +159,11 @@ $(document).ready(function() {
       $('.onion-container').addClass('floating');
       $('.peel-button').removeClass('hidden');
       $('header h1').css('color', $('section.current > .section-content').css('color')); // make LOVE IN THE CLOUD h1 match the section's text color
+      $('#life-link').css('border-color', $('section.current > .section-content').css('color')); // make life-link border color match the section's text color
+      $('#gift-modal .inside button').css('background-color', $('section.current > .section-color-backdrop').css('background-color'));
+      $('#gift-modal .inside button').css('color', $('section.current > .section-content').css('color')); // make gift button text color dependent on section text color
+      $('#sun-modal, #water-modal, #nutrients-modal').css('background-color', $('section.current > .section-color-backdrop').css('background-color'));
+      $('#sun-modal, #water-modal, #nutrients-modal').css('color', $('section.current > .section-content').css('color')); // make gift button text color dependent on section text color
       $('header nav ul').removeClass('show-all'); // hide ABOUT and CONTRIBUTORS links in header nav
       $('header nav ul li#header-nav-link_index').removeClass('current');
 
@@ -297,4 +334,96 @@ $(document).ready(function() {
     windowWidth = $(window).width(); // update window width
   }
   $(window).resize(_.throttle(adjust, 250)); // throttle resize event and adjust content position
+
+  /*************************
+   * GIFT MODALS (2021)
+   *************************/
+  $('#life-link, #gift-back, .life-link').click(function(){
+    $('#gift-modal').toggleClass('on');
+    $('body').toggleClass('frozen');
+  });
+
+  $('#sun-button, #sun-back').click(function(){
+    $('#sun-modal').toggleClass('on');
+  });
+
+  $('#water-button, #water-back').click(function(){
+    $('#water-modal').toggleClass('on');
+  });
+
+  $('#nutrients-button, #nutrients-back').click(function(evt){
+     evt.stopPropagation();
+     evt.preventDefault();
+     $('#nutrients-modal').toggleClass('on');
+   });
+
+   $('#thank-back').click(function(){
+     $('#thank-modal').toggleClass('on');
+     $('#gift-modal').toggleClass('on');
+   });
+
+   $('.supporters-link').click(function(){
+     $('#thank-modal').removeClass('on');
+     $('#gift-modal').removeClass('on');
+   });
+
+   var amount_field = document.getElementById("amount");
+
+   $('#one-button').click(function() {
+     amount_field.disabled = true;
+     $('#amount').val('5');
+     // amount_field.setAttribute('value', '5');
+     $('.amount-button').removeClass('current');
+     $(this).addClass('current');
+     $('.reason').hide();
+     $('#one-reason').toggle();
+   });
+   $('#two-button').click(function() {
+     amount_field.disabled = true;
+     $('#amount').val('25');
+     // amount_field.setAttribute('value', '25');
+     $('.amount-button').removeClass('current');
+     $(this).addClass('current');
+     $('.reason').hide();
+     $('#two-reason').toggle();
+   });
+   $('#three-button').click(function() {
+     amount_field.disabled = true;
+     $('#amount').val('100');
+     // amount_field.setAttribute('value', '100');
+     $('.amount-button').removeClass('current');
+     $(this).addClass('current');
+
+     $('.reason').hide();
+     $('#three-reason').toggle();
+   });
+   $('#four-button').click(function() {
+     amount_field.disabled = true;
+     $('#amount').val('500');
+     // amount_field.setAttribute('value', '500');
+     $('.amount-button').removeClass('current');
+     $(this).addClass('current');
+     $('.reason').hide();
+     $('#four-reason').toggle();
+   });
+   $('#custom-button').click(function() {
+     amount_field.disabled = false;
+     $('.amount-button').removeClass('current');
+     $(this).addClass('current');
+     $('.reason').hide();
+     $('#custom-reason').toggle();
+   });
+
+   function resizeIframe(obj) {
+      obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+    }
+
+    $('.supporters-link').click(function(){
+      goToSection(0);
+      setTimeout(function(){
+        getSection(0).find('#supporters')[0].scrollIntoView({behavior: 'smooth'});
+        playRubbingSound();
+      }, 500);
+    });
+
 });

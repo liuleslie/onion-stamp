@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="https://glitch.com/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Life and Death of an Internet Onion</title>
+  <link rel="stylesheet" href="css/style.css?9812731283" />
+  <style>
+  body {
+    margin: 0;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 1em 1em 0;
+    border: 1px dotted black;
+    padding: 5px 8px;
+  }
+  </style>
+  <!--     <link rel="stylesheet" href="/style.css" /> -->
+  <!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+  <!--     <script src="script.js" defer></script> -->
+  <script src="https://internet-onion-gift.glitch.me/socket.io/socket.io.js"></script>
+  <!-- <script src="/socket.io/socket.io.js"></script> -->
+  <script>
+    var socket = io();
+    window.onload = async () => {
+
+      const ul = document.querySelector('ul')
+
+      socket.on('get all data', (allData) => {
+
+        // let emails = []
+        // for (let item of allData) {
+        //   emails.push(item.email)
+        // }
+
+        // emails = [...new Set(emails)]
+        // console.log(emails)
+
+        // let output = ''
+        // for (let email of emails) {
+        //   let array = []
+        //   let temp = ''
+        //   for (let item of allData) {
+        //     if (item.email === email) {
+        //       array.push(item)
+        //       temp += `[${item.type}]`
+        //     }
+        //   }
+        //   output += `<li>${array[0].name} donated ${temp}</li>`
+
+        // old but still good
+
+        // const sortedByTime = allData.sort((a, b) => b.joined - a.joined);
+        // const output = sortedByTime.map(donation => {
+        //   const joinedInUTC = new Date(donation.joined).toUTCString();
+        //   if (joinedInUTC === 'Invalid Date') {
+        //     return `<li>${donation.name} donated ${donation.type}</li>`
+        //   };
+        //   return `<li>${donation.name} donated ${donation.type} on ${joinedInUTC}</li>`
+        // });
+        // ul.innerHTML = output.join('');
+
+        const sortedByTime = allData.sort((a, b) => b.joined - a.joined);
+        const output = sortedByTime.map(donation => {
+          const joinedInUTC = new Date(donation.joined).toUTCString();
+          if (joinedInUTC === 'Invalid Date') {
+            return `<li class="${donation.type}">${donation.name}</li>`
+          };
+          return `<li class="${donation.type}">${donation.name}</li>`
+        });
+        ul.innerHTML = output.join('');
+
+      });
+
+      setInterval(function () {
+        socket.emit('load new data');
+      }, 5000);
+
+    }
+  </script>
+  <style>
+    body {
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <ul></ul>
+</body>
+
+</html>

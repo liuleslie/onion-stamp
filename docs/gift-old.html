@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>The Life and Death of an Internet Onion</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <style>
+
+    section {
+      padding: 1em;
+      margin-bottom: 1em;
+      border: 1px solid transparent;
+    }
+
+    #main {
+      border-color: rgba(0,0,0,0.25);
+      border-radius: 25px;
+    }
+
+    #sun {
+      background: yellow;
+    }
+
+    #water {
+      background: cyan;
+    }
+
+    #nutrients {
+      background: peru;
+    }
+
+    #sun,
+    #water,
+    #nutrients {
+      display: none;
+    }
+
+    button.current {
+      border-radius: 4px;
+      padding: 2px 5px;
+      border: 1px solid black !important;
+    }
+
+    button#sun-button.current {
+      background: yellow;
+    }
+
+    button#water-button.current {
+      background: cyan;
+    }
+
+    button#nutrients-button.current {
+      background: peru;
+    }
+
+    section p:first-child {
+      margin-top: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div id="secret-area">
+
+    <section id="main">
+      <p>Onions are perennial plants.</p>
+      <p>Every year during the summer, the internet onion lives for 5 weeks.</p>
+      <p>To show your appreciation, feel free to contribute:</p>
+      <button id="sun-button">Sun</button>
+      <button id="water-button">Water</button>
+      <button id="nutrients-button">Nutrients</button>
+    </section>
+
+    <section id="sun">
+
+      <p>
+        I will provide sunlight to the onion ... <i>by making a promise to read it</i>.
+      </p>
+
+      <form>
+
+        <input type="text" name="first-name" placeholder="First Name">
+        <input type="text" name="last-name" placeholder="Last Name">
+        <input type="email" name="email" placeholder="Email">
+
+        <br><br>
+
+        <button>Submit</button>
+
+        <br><br>
+
+        <small>I understand that by clicking “Submit,” I am promising to read the onion, and my first name will be posted publicly on this website. My last name and email will be kept private.</small>
+
+      </form>
+
+    </section>
+
+    <section id="water">
+
+      <p>
+        I will water the onion ... <i>by supporting it with money</i>.
+      </p>
+
+      <button id="zero-button">$1</button>
+      <button id="one-button">$5</button>
+      <button id="two-button">$25</button>
+      <button id="three-button">$125</button>
+      <button id="custom-button">Custom</button>
+
+      <br><br>
+
+      <form action="/charge" method="POST" id="payment">
+        <input type="text" name="name" placeholder="Name">
+        <input type="email" name="email" placeholder="Email">
+        <input type="text" name="amount" placeholder="Amount" disabled id="amount">
+
+        <div id="card-element"></div>
+        <div id="card-errors" role="alert"></div>
+
+        <br><br>
+
+        <button>Submit Payment</button>
+
+        <br><br>
+
+        <small>I understand that by clicking “Submit,” I am contributing money to the onion, and my first name will be posted publicly on this website. My email will be kept private.</small>
+
+        <p class="stripe">
+          <i>Payments handled by <a href="https://stripe.com/">Stripe</a>.</i>
+        </p>
+
+      </form>
+
+    </section>
+
+    <section id="nutrients">
+
+      <p>
+        I will provide nutrients to the onion ... <i>by describing a gift I'd like to give the onion in words</i>.
+      </p>
+
+      <p style="color: white;">
+        Think about some great gifts you’re received. What made them so good? Please consider when you give something to the internet onion. Describe your gift here.
+      </p>
+
+      <form>
+
+        <textarea cols="50" rows="10" style="display: block;"></textarea>
+
+        <br>
+
+        <input type="text" name="first-name" placeholder="First Name">
+        <input type="text" name="last-name" placeholder="Last Name">
+        <input type="email" name="email" placeholder="Email">
+
+        <br><br>
+
+        <button>Submit</button>
+
+        <br><br>
+
+        <small>I understand that by clicking “Submit,” I am giving my written gift to the onion, and my first name will be posted publicly on this website. My last name and email will be kept private.</small>
+
+      </form>
+
+    </section>
+
+  </div>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="card.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+  </script>
+  <script>
+    $(function() {
+
+      $('#sun-button').click(function(){
+        $('#sun, #water, #nutrients').hide();
+        $('#sun').toggle();
+        $('button').removeClass('current');
+        $(this).addClass('current');
+      });
+
+      $('#water-button').click(function(){
+        $('#sun, #water, #nutrients').hide();
+        $('#water').toggle();
+        $('button').removeClass('current');
+        $(this).addClass('current');
+      });
+
+      $('#nutrients-button').click(function(){
+        $('#sun, #water, #nutrients').hide();
+        $('#nutrients').toggle();
+        $('button').removeClass('current');
+        $(this).addClass('current');
+      });
+
+      var amount_field = document.getElementById("amount");
+
+      $('#zero-button').click(function() {
+        amount_field.disabled = true;
+        amount_field.setAttribute('value', '1');
+      });
+      $('#one-button').click(function() {
+        amount_field.disabled = true;
+        amount_field.setAttribute('value', '5');
+      });
+      $('#two-button').click(function() {
+        amount_field.disabled = true;
+        amount_field.setAttribute('value', '25');
+      });
+      $('#three-button').click(function() {
+        amount_field.disabled = true;
+        amount_field.setAttribute('value', '125');
+      });
+      $('#custom-button').click(function() {
+        amount_field.disabled = false;
+        amount_field.setAttribute('value', '625');
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>
