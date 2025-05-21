@@ -1,4 +1,8 @@
-# internet onion
+# internet onion — stamped!
+
+below from Laurel Schwulst's [original repo](https://github.com/laurelschwulst/internet-onion)
+
+---
 
 the site is published through github pages at the custom domain:<br>
 https://the-life-and-death-of-an-internet-onion.com
